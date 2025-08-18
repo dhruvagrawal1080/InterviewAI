@@ -93,7 +93,7 @@ const InterviewPage = () => {
             setIsAISpeaking(true);
 
             const response = await axios.post(
-                'https://texttospeech.googleapis.com/v1/text:synthesize?key=AIzaSyBUgZsSvwaZkE-La9lF42RRo3VzoU_JlGY',
+                `https://texttospeech.googleapis.com/v1/text:synthesize?key=${import.meta.env.GOOGLE_TTS_API_KEY}`,
                 {
                     input: { text: message },
                     voice: {
