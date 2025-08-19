@@ -68,7 +68,7 @@ async function processMemoryJob(userId, message) {
             provider: 'gemini',
             config: {
                 apiKey: process.env.GOOGLE_API_KEY,
-                model: 'gemini-2.5-flash',
+                model: 'gemini-2.5-flash-lite',
             },
         },
     };
