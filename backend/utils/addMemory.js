@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import { Memory } from 'mem0ai/oss';
 import { Queue, Worker } from 'bullmq';
+import { QdrantClient } from "@qdrant/js-client-rest";
 
 dotenv.config({ quiet: true });
 
@@ -12,6 +13,11 @@ const redisConfig = {
     enableReadyCheck: false,
     maxRetriesPerRequest: null,
 };
+
+const qdrantClient = new QdrantClient({
+    url: process.env.QDRANT_URL,
+    apiKey: process.env.QDRANT_API_KEY,
+});
 
 // Create memory processing queue
 const memoryQueue = new Queue('memory-processing', {
@@ -27,9 +33,28 @@ const memoryQueue = new Queue('memory-processing', {
     },
 });
 
+async function ensureCollectionAndIndexes(userId) {
+    const collectionName = `user_memories_${userId}`;
+
+    // Create userId index
+    try {
+        await qdrantClient.createPayloadIndex(collectionName, {
+            field_name: "userId",
+            field_schema: { type: "keyword" }
+        });
+        console.log("Index created for userId");
+    } catch (err) {
+        if (err?.response?.status === 409) {
+            console.log("Index already exists for userId");
+        } else {
+            throw err;
+        }
+    }
+}
+
 // Worker to process memory jobs
 const memoryWorker = new Worker('memory-processing', async (job) => {
-    const { userId, message } = job.data;    
+    const { userId, message } = job.data;
     try {
         await processMemoryJob(userId, message);
         return { success: true, userId, processedAt: new Date().toISOString() };
@@ -44,6 +69,7 @@ const memoryWorker = new Worker('memory-processing', async (job) => {
 
 // Memory processing logic
 async function processMemoryJob(userId, message) {
+    await ensureCollectionAndIndexes(userId);
     const config = {
         version: 'v1.1',
         embedder: {
@@ -58,8 +84,8 @@ async function processMemoryJob(userId, message) {
             provider: 'qdrant',
             config: {
                 collectionName: `user_memories_${userId}`,
-                host: 'localhost',
-                port: 6333,
+                url: process.env.QDRANT_URL,
+                apiKey: process.env.QDRANT_API_KEY,
                 embeddingModelDims: 768,
                 dimension: 768,
             },
@@ -108,7 +134,7 @@ export async function addMemory(userId, message) {
             delay: 100, // Small delay to batch if needed
             priority: 1,
         });
-        
+
         console.log(`📋 Memory job queued with ID: ${job.id} for user: ${userId}`);
         return { success: true, jobId: job.id };
     } catch (error) {

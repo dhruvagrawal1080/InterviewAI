@@ -60,4 +60,5 @@ web_modules/
 .DS_Store
 Thumbs.db
 
+memory.db
 
