@@ -41,19 +41,19 @@ const InterviewSection = () => {
   );
 
   return (
-    <section id="interview-section" className="py-16 bg-gray-50 dark:bg-gray-900">
+    <section id="interview-section" className="py-16 bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Voice Interview Simulation
             </h2>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-gray-300">
               Speak naturally with our AI interviewer and receive instant feedback
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+          <div className="bg-gray-800 rounded-xl shadow-md overflow-hidden">
             <div className="flex flex-col md:flex-row">
               {/* AI Interviewer Side */}
               <div className="w-full md:w-1/3 bg-primary p-6">
@@ -112,9 +112,9 @@ const InterviewSection = () => {
               <div className="w-full md:w-2/3 p-6">
                 <div className="flex flex-col h-full">
                   <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-xl font-semibold text-primary dark:text-white">Interview Transcript</h3>
+                    <h3 className="text-xl font-semibold text-white">Interview Transcript</h3>
                     <div className="flex items-center space-x-2">
-                      <span className="text-sm text-gray-500 dark:text-gray-400">Duration: 05:23</span>
+                      <span className="text-sm text-gray-400">Duration: 05:23</span>
                       <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
                       <span className="text-sm font-medium text-green-500">Live</span>
                     </div>
@@ -129,12 +129,12 @@ const InterviewSection = () => {
                           </div>
                         )}
                         <div className={`rounded-lg p-3 max-w-[80%] ${message.type === 'ai'
-                          ? 'bg-gray-100 dark:bg-gray-700'
+                          ? 'bg-gray-700'
                           : 'bg-[#38BDF8]/10'
                           }`}>
                           <p className={`${message.type === 'ai'
-                            ? 'text-gray-800 dark:text-gray-200'
-                            : 'text-primary dark:text-white'
+                            ? 'text-gray-200'
+                            : 'text-white'
                             }`}>
                             {message.message}
                           </p>
@@ -149,18 +149,18 @@ const InterviewSection = () => {
                   </div>
 
                   {/* Voice Input Area */}
-                  <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
+                  <div className="border-t border-gray-700 pt-4">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center space-x-2">
                         <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Recording</span>
+                        <span className="text-sm font-medium text-gray-300">Recording</span>
                       </div>
                       <div>
-                        <span className="text-sm text-gray-500 dark:text-gray-400">Press space to pause/resume</span>
+                        <span className="text-sm text-gray-400">Press space to pause/resume</span>
                       </div>
                     </div>
 
-                    <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 flex items-center">
+                    <div className="bg-gray-900 rounded-lg p-4 flex items-center">
                       <div className="flex-1 flex space-x-1 items-center">
                         {voiceWaveHeights.map((height, index) => (
                           <div
