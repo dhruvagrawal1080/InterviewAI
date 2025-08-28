@@ -7,11 +7,11 @@ export default function HeroSection() {
                 <div className="flex flex-col md:flex-row items-center">
                     {/* Left side content */}
                     <div className="w-full md:w-1/2 pr-0 md:pr-8 mb-10 md:mb-0">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary dark:text-white leading-tight mb-6">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary text-white leading-tight mb-6">
                             Practice Interviews with Your{" "}
                             <span className="text-accent">AI Voice Coach</span>
                         </h1>
-                        <p className="text-gray-700 dark:text-gray-300 text-lg mb-8">
+                        <p className="text-gray-300 text-lg mb-8">
                             Upload your resume or tell us about yourself — then start a
                             realistic voice-based interview powered by AI. Get instant
                             feedback and improve your interview skills.
@@ -50,7 +50,7 @@ export default function HeroSection() {
                                 src="https://storage.googleapis.com/uxpilot-auth.appspot.com/f517a8daa8-d0c7303737ba27163681.png"
                                 alt="futuristic AI voice interview simulator"
                             />
-                            <div className="absolute -bottom-6 -right-6 bg-white dark:bg-gray-800 rounded-lg p-4 shadow-lg">
+                            <div className="absolute -bottom-6 -right-6 bg-gray-800 rounded-lg p-4 shadow-lg">
                                 <div className="flex items-center space-x-3">
                                     <div className="flex space-x-1">
                                         {[0.1, 0.2, 0.3, 0.4, 0.5].map((delay, i) => (
@@ -61,7 +61,7 @@ export default function HeroSection() {
                                             ></div>
                                         ))}
                                     </div>
-                                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                                    <span className="text-sm font-medium text-gray-300">
                                         AI Listening...
                                     </span>
                                 </div>
