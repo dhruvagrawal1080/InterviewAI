@@ -105,14 +105,14 @@ const SummaryPage = () => {
     // Loading state
     if (loading) {
         return (
-            <section className="py-16 bg-gray-50 dark:bg-gray-900 mt-20 h-full">
+            <section className="py-16 bg-gray-900 mt-20 h-full">
                 <div className="container mx-auto px-4 max-w-6xl">
                     <div className="text-center">
                         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#38BDF8] mx-auto mb-4"></div>
-                        <h2 className="text-2xl font-bold text-primary dark:text-white mb-4">
+                        <h2 className="text-2xl font-bold text-white mb-4">
                             Generating Your Interview Summary...
                         </h2>
-                        <p className="text-gray-600 dark:text-gray-300">
+                        <p className="text-gray-300">
                             Please wait while we analyze your interview performance.
                         </p>
                     </div>
@@ -124,14 +124,14 @@ const SummaryPage = () => {
     // Error state
     if (error) {
         return (
-            <section className="py-16 bg-gray-50 dark:bg-gray-900 mt-20 h-full">
+            <section className="py-16 bg-gray-900 mt-20 h-full">
                 <div className="container mx-auto px-4 max-w-6xl">
                     <div className="text-center">
-                        <div className="bg-red-100 dark:bg-red-900 rounded-lg p-6">
-                            <h2 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-4">
+                        <div className="bg-red-900 rounded-lg p-6">
+                            <h2 className="text-2xl font-bold text-red-400 mb-4">
                                 Error Loading Summary
                             </h2>
-                            <p className="text-red-600 dark:text-red-400 mb-4">
+                            <p className="text-red-400 mb-4">
                                 {error}
                             </p>
                             <button
@@ -148,25 +148,25 @@ const SummaryPage = () => {
     }
 
     return (
-        <section className="py-16 bg-gray-50 dark:bg-gray-900 mt-20">
+        <section className="py-16 bg-gray-900 mt-20">
             <div className="container mx-auto px-4 max-w-6xl">
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-primary dark:text-white mb-4">
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                         Your Interview Summary
                     </h2>
-                    <p className="text-gray-600 dark:text-gray-300">{summary.overall}</p>
+                    <p className="text-gray-300">{summary.overall}</p>
                 </div>
 
                 {/* Summary Card */}
-                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 md:p-8 space-y-8">
+                <div className="bg-gray-800 rounded-xl shadow-md p-6 md:p-8 space-y-8">
                     {/* Interview Info */}
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
                         <div>
-                            <h3 className="text-xl font-semibold text-primary dark:text-white">
+                            <h3 className="text-xl font-semibold text-white">
                                 {summary.title}
                             </h3>
-                            <p className="text-gray-500 dark:text-gray-400">
+                            <p className="text-gray-400">
                                 Completed on {summary.date}
                             </p>
                         </div>
@@ -177,10 +177,10 @@ const SummaryPage = () => {
                                 </span>
                             </div>
                             <div>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">
+                                <p className="text-sm text-gray-400">
                                     Overall Score
                                 </p>
-                                <p className="font-medium text-primary dark:text-white">
+                                <p className="font-medium text-white">
                                     {summary.rating}
                                 </p>
                             </div>
@@ -189,19 +189,19 @@ const SummaryPage = () => {
 
                     {/* Section: Scores */}
                     <div>
-                        <h4 className="text-lg font-semibold text-primary dark:text-white mb-3">
+                        <h4 className="text-lg font-semibold text-white mb-3">
                             Section Scores
                         </h4>
                         <div className="flex flex-wrap gap-4">
                             {summary.scores.map((score, i) => (
                                 <div
                                     key={i}
-                                    className="bg-gray-100 dark:bg-gray-700 px-4 py-2 rounded-lg"
+                                    className="bg-gray-700 px-4 py-2 rounded-lg"
                                 >
-                                    <p className="font-medium text-primary dark:text-white">
+                                    <p className="font-medium text-white">
                                         {score.label}
                                     </p>
-                                    <p className="text-gray-700 dark:text-gray-300">
+                                    <p className="text-gray-300">
                                         {score.value}
                                     </p>
                                 </div>
@@ -211,10 +211,10 @@ const SummaryPage = () => {
 
                     {/* Section: Strengths */}
                     <div>
-                        <h4 className="text-lg font-semibold text-primary dark:text-white mb-3">
+                        <h4 className="text-lg font-semibold text-white mb-3">
                             Key Strengths
                         </h4>
-                        <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300">
+                        <ul className="list-disc pl-6 space-y-2 text-gray-300">
                             {summary.strengths.map((point, i) => (
                                 <li key={i}>{point}</li>
                             ))}
@@ -223,10 +223,10 @@ const SummaryPage = () => {
 
                     {/* Section: Improvements */}
                     <div>
-                        <h4 className="text-lg font-semibold text-primary dark:text-white mb-3">
+                        <h4 className="text-lg font-semibold text-white mb-3">
                             Areas for Improvement
                         </h4>
-                        <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300">
+                        <ul className="list-disc pl-6 space-y-2 text-gray-300">
                             {summary.improvements.map((point, i) => (
                                 <li key={i}>{point}</li>
                             ))}
@@ -235,10 +235,10 @@ const SummaryPage = () => {
 
                     {/* Listening & Adaptability */}
                     <div>
-                        <h4 className="text-lg font-semibold text-primary dark:text-white mb-3">
+                        <h4 className="text-lg font-semibold text-white mb-3">
                             Listening & Adaptability
                         </h4>
-                        <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300">
+                        <ul className="list-disc pl-6 space-y-2 text-gray-300">
                             {summary.listeningAdaptability.map((point, i) => (
                                 <li key={i}>{point}</li>
                             ))}
@@ -247,10 +247,10 @@ const SummaryPage = () => {
 
                     {/* Domain-Specific Insight */}
                     <div>
-                        <h4 className="text-lg font-semibold text-primary dark:text-white mb-3">
+                        <h4 className="text-lg font-semibold text-white mb-3">
                             Domain-Specific Insight
                         </h4>
-                        <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300">
+                        <ul className="list-disc pl-6 space-y-2 text-gray-300">
                             {summary.domainInsight.map((point, i) => (
                                 <li key={i}>{point}</li>
                             ))}
@@ -259,19 +259,19 @@ const SummaryPage = () => {
 
                     {/* Section: Recommendations */}
                     <div>
-                        <h4 className="text-lg font-semibold text-primary dark:text-white mb-3">
+                        <h4 className="text-lg font-semibold text-white mb-3">
                             Recommended Practice
                         </h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {summary.recommendations.map((rec, i) => (
                                 <div
                                     key={i}
-                                    className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg"
+                                    className="bg-gray-900 p-4 rounded-lg"
                                 >
-                                    <p className="font-medium text-primary dark:text-white mb-1">
+                                    <p className="font-medium text-white mb-1">
                                         {rec.title}
                                     </p>
-                                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                                    <p className="text-sm text-gray-400">
                                         {rec.description}
                                     </p>
                                 </div>
@@ -281,10 +281,10 @@ const SummaryPage = () => {
 
                     {/* Section: Encouragement */}
                     <div>
-                        <h4 className="text-lg font-semibold text-primary dark:text-white mb-3">
+                        <h4 className="text-lg font-semibold text-white mb-3">
                             Encouragement & Next Steps
                         </h4>
-                        <p className="text-gray-700 dark:text-gray-300">
+                        <p className="text-gray-300">
                             {summary.encouragement}
                         </p>
                     </div>

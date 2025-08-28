@@ -376,9 +376,9 @@ const InterviewPage = () => {
     }
 
     return (
-        <section id="interview-section" className=" bg-gray-50 dark:bg-gray-900 mt-20 h-[calc(100vh-5rem)]">
+        <section id="interview-section" className=" bg-gray-900 mt-20 h-[calc(100vh-5rem)]">
             <div className="h-full">
-                <div className="bg-white dark:bg-gray-800 shadow-md h-full">
+                <div className="bg-gray-800 shadow-md h-full">
                     <div className="flex flex-col md:flex-row h-full">
                         {/* AI Interviewer Side */}
                         <div className="w-full md:w-1/3 p-6">
@@ -461,9 +461,9 @@ const InterviewPage = () => {
                         <div className="w-full md:w-2/3 p-6 bg-[#1E2939]">
                             <div className="flex flex-col h-full">
                                 <div className="flex items-center justify-between mb-6">
-                                    <h3 className="text-xl font-semibold text-primary dark:text-white">Interview Transcript</h3>
+                                    <h3 className="text-xl font-semibold text-white">Interview Transcript</h3>
                                     <div className="flex items-center space-x-2">
-                                        <span className="text-sm text-gray-500 dark:text-gray-400">
+                                        <span className="text-sm text-gray-400">
                                             Duration: {formattedDuration}
                                         </span>
                                         <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
@@ -480,12 +480,12 @@ const InterviewPage = () => {
                                                 </div>
                                             )}
                                             <div className={`rounded-lg p-3 max-w-[80%] ${message.type === 'ai'
-                                                ? 'bg-gray-100 dark:bg-gray-700'
+                                                ? 'bg-gray-700'
                                                 : 'bg-[#38BDF8]/10'
                                                 }`}>
                                                 <p className={`${message.type === 'ai'
-                                                    ? 'text-gray-800 dark:text-gray-200'
-                                                    : 'text-primary dark:text-white'
+                                                    ? 'text-gray-200'
+                                                    : 'text-white'
                                                     }`}>
                                                     {message.message}
                                                 </p>
@@ -504,12 +504,12 @@ const InterviewPage = () => {
                                             <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white mr-3 flex-shrink-0">
                                                 {robotIcon}
                                             </div>
-                                            <div className="bg-gray-100 dark:bg-gray-700 rounded-lg p-3 max-w-[80%]">
+                                            <div className="bg-gray-700 rounded-lg p-3 max-w-[80%]">
                                                 <div className="flex items-center space-x-2">
                                                     <div className="w-2 h-2 bg-gray-400 rounded-full animate-thinking-bounce" style={{ animationDelay: '0ms' }}></div>
                                                     <div className="w-2 h-2 bg-gray-400 rounded-full animate-thinking-bounce" style={{ animationDelay: '150ms' }}></div>
                                                     <div className="w-2 h-2 bg-gray-400 rounded-full animate-thinking-bounce" style={{ animationDelay: '300ms' }}></div>
-                                                    <span className="text-gray-500 dark:text-gray-400 text-sm">AI is thinking...</span>
+                                                    <span className="text-gray-400 text-sm">AI is thinking...</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -517,20 +517,20 @@ const InterviewPage = () => {
                                 </div>
 
                                 {/* Voice Input Area */}
-                                <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
+                                <div className="border-t border-gray-700 pt-4">
                                     <div className="flex items-center justify-between mb-3">
                                         <div className="flex items-center space-x-2">
                                             <div className={`w-3 h-3 rounded-full ${isRecording ? 'bg-red-500' : 'bg-gray-400'}`}></div>
-                                            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                                            <span className="text-sm font-medium text-gray-300">
                                                 {isRecording ? 'Recording' : 'Ready to Record'}
                                             </span>
                                         </div>
                                         <div>
-                                            <span className="text-sm text-gray-500 dark:text-gray-400">Click microphone to start/stop</span>
+                                            <span className="text-sm text-gray-400">Click microphone to start/stop</span>
                                         </div>
                                     </div>
 
-                                    <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 flex items-center">
+                                    <div className="bg-gray-900 rounded-lg p-4 flex items-center">
                                         <div className="flex-1 flex space-x-1 items-center">
                                             {isRecording ? (
                                                 voiceWaveHeights.map((height, index) => (
@@ -544,7 +544,7 @@ const InterviewPage = () => {
                                                     ></div>
                                                 ))
                                             ) : (
-                                                <div className="flex-1 text-center text-gray-500 dark:text-gray-400">
+                                                <div className="flex-1 text-center text-gray-400">
                                                     <span className="text-sm">Click the microphone to start speaking</span>
                                                 </div>
                                             )}
@@ -574,11 +574,11 @@ const InterviewPage = () => {
                                     </div>
 
                                     {accumulatedText && (
-                                        <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                                        <div className="mt-3 p-3 bg-blue-900/20 rounded-lg">
                                             <textarea
                                                 value={`${isRecording ? 'Speaking: ' : 'Spoken: '}${accumulatedText}`}
                                                 onChange={handleTextareaChange}
-                                                className="w-full text-sm text-blue-800 dark:text-blue-200 bg-transparent border-none outline-none resize-none p-0 m-0 font-inherit leading-inherit"
+                                                className="w-full text-sm text-blue-200 bg-transparent border-none outline-none resize-none p-0 m-0 font-inherit leading-inherit"
                                                 rows="1"
                                                 style={{
                                                     fontFamily: 'inherit',

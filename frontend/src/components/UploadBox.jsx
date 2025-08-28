@@ -72,18 +72,18 @@ const UploadBox = () => {
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-900 shadow-md p-6 md:p-8 flex flex-col h-full">
+    <div className="bg-gray-900 shadow-md p-6 md:p-8 flex flex-col h-full">
       <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6 h-full">
         {/* Resume Upload */}
         <div className="w-full md:w-1/2 bg-gray-800">
-          <div className="border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg p-8 h-full flex flex-col items-center justify-center text-center hover:border-accent dark:hover:border-accent transition">
-            <div className="w-20 h-20 text-3xl bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center mb-4">
+          <div className="border-2 border-dashed border-gray-700 rounded-lg p-8 h-full flex flex-col items-center justify-center text-center hover:border-accent transition">
+            <div className="w-20 h-20 text-3xl bg-blue-900/20 rounded-full flex items-center justify-center mb-4">
               📄
             </div>
-            <h3 className="text-xl font-semibold text-primary dark:text-white mb-2">
+            <h3 className="text-xl font-semibold text-white mb-2">
               Upload Your Resume
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+            <p className="text-gray-400 text-sm mb-4">
               PDF (Max 5MB)
             </p>
             <label
@@ -100,7 +100,7 @@ const UploadBox = () => {
               onChange={handleFileChange}
               disabled={isLoading}
             />
-            <p className="text-gray-500 dark:text-gray-400 text-sm mt-4">
+            <p className="text-gray-400 text-sm mt-4">
               {pdfName || "No file selected"}
             </p>
           </div>
@@ -109,11 +109,11 @@ const UploadBox = () => {
         {/* Description Input */}
         <div className="w-full md:w-1/2">
           <div className="h-full flex flex-col">
-            <h3 className="text-xl font-semibold dark:text-white mb-4">
+            <h3 className="text-xl font-semibold text-white mb-4">
               Or Describe Yourself
             </h3>
             <textarea
-              className={`w-full h-full p-4 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-accent resize-none ${isLoading && "cursor-not-allowed"}`}
+              className={`w-full h-full p-4 border border-gray-700 rounded-lg bg-gray-800 text-gray-200 focus:outline-none focus:ring-2 focus:ring-accent resize-none ${isLoading && "cursor-not-allowed"}`}
               placeholder="Describe your background, experience, or the job you're targeting…"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
